@@ -14,14 +14,14 @@ par... si no lo es, lo arreglamos
 '''
 if len(player_name) % 2 != 0:
   player_name = player_name + " "
-  
+
 # Para imprimir los puntajes centrados, debemos rellenar con " "
 spaces = " " * (len(player_name) // 2)
 comp_spaces = " " * (len("Computadora") // 2)
 delimiter_spaces = (len(player_name) + len("Computadora") + 9)
 
 max_rounds = int(input('¿A cuántos puntos será el juego?: '))
-  
+
 while user_score < max_rounds and computer_score < max_rounds:
   print("-" * delimiter_spaces)
   print(" " * (delimiter_spaces // 2 - 4) + "ROUND", round)
@@ -29,18 +29,21 @@ while user_score < max_rounds and computer_score < max_rounds:
   print(f"| {player_name} | Computadora |")
   if user_score < 10:
     if computer_score < 10:
-      print("| " + spaces + str(user_score) + spaces + "| " + comp_spaces + str(computer_score) + comp_spaces + " |")
+      print("| " + spaces + str(user_score) + spaces + "| " + comp_spaces +
+            str(computer_score) + comp_spaces + " |")
     else:
-      print("| " + spaces + str(user_score) + spaces + "| " + comp_spaces + str(computer_score) + comp_spaces + "|")
+      print("| " + spaces + str(user_score) + spaces + "| " + comp_spaces +
+            str(computer_score) + comp_spaces + "|")
   else:
     if computer_score < 10:
-      print("|" + spaces + str(user_score) + spaces + "| " + comp_spaces + str(computer_score) + comp_spaces + " |")
+      print("|" + spaces + str(user_score) + spaces + "| " + comp_spaces +
+            str(computer_score) + comp_spaces + " |")
     else:
-      print("|" + spaces + str(user_score) + spaces + "| " + comp_spaces + str(computer_score) + comp_spaces + "|")
-  
-  user_option = input('¿piedra, papel o tijera? ').lower()
-  round += 1
+      print("|" + spaces + str(user_score) + spaces + "| " + comp_spaces +
+            str(computer_score) + comp_spaces + "|")
 
+  user_option = input('\n¿piedra, papel o tijera?: ').lower()
+  round += 1
   '''
   Hacemos una comprobación de la entrada del usuario para evitar errores
   de funcionamiento del juego
@@ -48,11 +51,11 @@ while user_score < max_rounds and computer_score < max_rounds:
   if not user_option in options:
     print('No es una opción válida, intenta otra vez')
     continue
-  
-  computer_option = random.choice(options) #Elige aleatorio una de las 3
-  
-  print('La computadora elige', computer_option)
-  
+
+  computer_option = random.choice(options)  #Elige aleatorio una de las 3
+
+  print('\n -> La computadora elige: ', computer_option,'\n')
+
   if user_option == computer_option:
     print('Empate!')
   elif user_option == 'piedra':
